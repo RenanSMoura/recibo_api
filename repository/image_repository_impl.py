@@ -1,5 +1,6 @@
 import os
 import textwrap
+from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -28,6 +29,7 @@ class ImageGenerationRepositoryImplementation(ImageRepository):
 
         cpf_font = ImageFont.truetype('Quicksand-Regular.ttf', 16)
         draw.text((520, 460), "CPF: 410.960.628-44", text_color, cpf_font)
+
 
         file_path = f"{user_file_name}.png"
         im.save(file_path)
