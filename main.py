@@ -3,9 +3,9 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from model.User import User
-from repository.image_repository_impl import ImageGenerationRepositoryImplementation
+from repository.image.image_repository_impl import ImageGenerationRepositoryImplementation
 from repository.text.text_repository_impl import TextGenerationRepositoryImplementation
-from utils.date_translator import get_file_name, getDateInString
+from utils.date_translator import get_file_name
 
 
 def print_hi(name):

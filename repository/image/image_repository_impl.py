@@ -1,10 +1,9 @@
 import os
 import textwrap
-from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-from repository.image_repository import ImageRepository
+from repository.image.image_repository import ImageRepository
 from utils.date_translator import getDateInString
 
 
