@@ -10,13 +10,13 @@ from utils.date_translator import getDateInString
 
 class ImageGenerationRepositoryImplementation(ImageRepository):
 
-    def generateSubjectTicket(self, description: str, user_file_name: str, payment_day: str):
+    def generateSubjectTicket(self, description: str, user_file_name: str):
         im = Image.open('base_recibo.png')
         draw = ImageDraw.Draw(im)
         text_color = (64, 64, 64)
         font = ImageFont.truetype('Quicksand-Regular.ttf', 18)
         text = description
-        date = getDateInString(payment_day)
+        date = getDateInString()
         lines = textwrap.wrap(text, 75, initial_indent='\r\r\r\r')
         final_text = ""
 
