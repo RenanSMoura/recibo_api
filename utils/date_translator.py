@@ -7,13 +7,13 @@ months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5: 'maio', 6: '
 
 # pattern = re.compile("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])")
 
-def getDateInString(**kwargs):
-    payment_day = kwargs.get('day')
+def getDateInString(paymentDay: str):
+    payment_day = paymentDay
 
     if not payment_day:
         date = datetime.now()
     else:
-        date = datetime.fromtimestamp(payment_day)
+        date = translate_to_date_time(payment_day)
 
     day = date.day
     month = date.month
@@ -34,3 +34,13 @@ def get_file_name(user_name: str):
     Path(f"{folder}{folder_month}").mkdir(parents=True, exist_ok=True)
 
     return f'{folder}{folder_month}{replace}_{year}_{month}'
+
+
+def translate_to_date_time(payment_day: str):
+    date_time_obj = datetime.strptime(payment_day, '%d/%m/%Y')
+    return date_time_obj
+
+
+# date_time_obj = datetime.strptime(date_time_str, '%d/%m')
+# print("The type of the date is now", type(date_time_obj))
+# print("The date is", date_time_obj.month)

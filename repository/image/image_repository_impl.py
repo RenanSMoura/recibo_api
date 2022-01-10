@@ -1,9 +1,12 @@
 import os
 import textwrap
+
 from PIL import Image, ImageDraw, ImageFont
+
 from repository.configs import *
 from repository.image.image_repository import ImageRepository
 from utils.date_translator import getDateInString
+
 
 class ImageGenerationRepositoryImplementation(ImageRepository):
 
@@ -11,21 +14,21 @@ class ImageGenerationRepositoryImplementation(ImageRepository):
         self.text_color = TEXT_COLOR
         self.text_font = ImageFont.truetype(TEXT_FONT_FAMILY, TEXT_FONT_SIZE)
 
-    def generateSubjectTicket(self, description: str, user_file_name: str):
+    def generateSubjectTicket(self, description: str, user_file_name: str, paymentDate: str):
         final_text = ""
 
         im = Image.open(BASE_FILE_NAME)
 
         draw = ImageDraw.Draw(im)
 
-        lines = textwrap.wrap(description, 75, initial_indent='\r\r\r\r')
+        lines = textwrap.wrap(description, 75, initial_indent=INITIAL_INDENT)
 
         for idx, line in enumerate(lines):
             line += str('\n')
             final_text += line
 
         self._draw_multi_line_text(draw, final_text)
-        self._draw_date(draw)
+        self._draw_date(draw, paymentDate)
         self._draw_cpf(draw)
 
         file_path = self._generate_file_name_and_save(im, user_file_name)
@@ -36,8 +39,8 @@ class ImageGenerationRepositoryImplementation(ImageRepository):
         xy = (120, 165)
         draw.multiline_text(xy, final_text, self.text_color, self.text_font, spacing=15)
 
-    def _draw_date(self, draw: ImageDraw):
-        date = getDateInString()
+    def _draw_date(self, draw: ImageDraw, paymentDate: str):
+        date = getDateInString(paymentDate)
         xy = (150, 320)
         draw.text(xy, date, self.text_color, self.text_font)
 

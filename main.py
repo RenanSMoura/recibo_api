@@ -2,6 +2,8 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from datetime import datetime
+
 from model.User import User
 from repository.image.image_repository_impl import ImageGenerationRepositoryImplementation
 from repository.text.text_repository_impl import TextGenerationRepositoryImplementation
@@ -15,7 +17,7 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sr",
         session_price="160",
-        session_days=['5/10','12/10','19/10','26,10']
+        session_days=['5/10', '12/10', '19/10', '26,10']
     )
 
     mayara = User(
@@ -40,7 +42,8 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sra",
         session_price="140",
-        session_days=['04/10', '11/10', '18/10', '25/10']
+        session_days=['04/10', '11/10', '18/10', '25/10'],
+        payment_day="22/12/2021"
     )
 
     rapha = User(
@@ -75,14 +78,13 @@ def print_hi(name):
         final_text = clss.createTicketDescription(user)
         image_generator.generateSubjectTicket(
             description=final_text,
-            user_file_name=get_file_name(user.name.lower())
+            user_file_name=get_file_name(user.name.lower()),
+            paymentDate=user.payment_day
         )
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # data = getDateInString(day=1636408022)
-    # print(data)
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
