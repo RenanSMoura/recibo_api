@@ -1,0 +1,12 @@
+click
+docopt
+Flask
+fpdf
+itsdangerous
+Jinja2
+MarkupSafe
+num2Words
+Pillow
+pip
+setuptools
+Werkzeug
