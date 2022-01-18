@@ -1,1 +1,1 @@
-web: gunicorn ticket_api.wsgi
+web: gunicorn app:app
