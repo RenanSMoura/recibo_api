@@ -2,7 +2,6 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from datetime import datetime
 
 from model.User import User
 from repository.image.image_repository_impl import ImageGenerationRepositoryImplementation
@@ -17,7 +16,8 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sr",
         session_price="160",
-        session_days=['5/10', '12/10', '19/10', '26,10']
+        session_days=['5/01', '12/01', '19/01', '26/01'],
+        payment_day="02/01/2022"
     )
 
     mayara = User(
@@ -25,7 +25,8 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sra",
         session_price="130",
-        session_days=['04/10', '11/10', '18/10', '25/10'],
+        session_days=['01/12', '08/12', '15/12', '22/12', '28/12'],
+        payment_day="15/12/2021"
 
     )
 
@@ -34,7 +35,8 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sra",
         session_price="150",
-        session_days=['04/10', '11/10', '18/10', '25/10']
+        session_days=['01/12', '08/12', '15/12', '22/12'],
+        payment_day="30/12/2021"
     )
 
     bianca = User(
@@ -42,7 +44,7 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sra",
         session_price="140",
-        session_days=['04/10', '11/10', '18/10', '25/10'],
+        session_days=['06/12', '13/12', '20/12'],
         payment_day="22/12/2021"
     )
 
@@ -66,10 +68,36 @@ def print_hi(name):
         user_email="renan.silva.moura@gmail.com",
         user_title="Sra",
         session_price="135",
-        session_days=['07/10', '14/10', '28/10']
+        session_days=['02/12', '9/12', '30/12'],
+        payment_day="30/12/2021"
     )
-    # subject_list = [leandro, mayara, gabriela, bruna, rapha, barbara, bianca]
-    subject_list = [bianca]
+
+    pamela_dezembro = User(
+        user_name="Pâmela Guimarães Cuesta Hijano",
+        user_email="renan.silva.moura@gmail.com",
+        user_title="Sra",
+        session_price="140",
+        session_days=['08/12', '22/12'],
+        payment_day="8/12/2021"
+    )
+    pamela_janeiro = User(
+        user_name="Pâmela Guimarães Cuesta Hijano",
+        user_email="renan.silva.moura@gmail.com",
+        user_title="Sra",
+        session_price="190",
+        session_days=['05/01', '19/01'],
+        payment_day="10/01/2022"
+    )
+    ana_paula = User(
+        user_name="Ana Paula Munhoz",
+        user_title="Sra",
+        session_price="125",
+        session_days=["04/01", "11/01", "18/01", "25/01"],
+        payment_day="10/01/2022"
+    )
+
+    # subject_list = [gabriela, leandro, bianca, mayara, barbara, pamela_dezembro, pamela_janeiro]
+    subject_list = [ana_paula]
 
     clss = TextGenerationRepositoryImplementation()
     image_generator = ImageGenerationRepositoryImplementation()
