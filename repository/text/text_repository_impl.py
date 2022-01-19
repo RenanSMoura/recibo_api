@@ -10,11 +10,22 @@ class TextGenerationRepositoryImplementation(TextGeneratorRepository):
 
     def createTicketDescription(self, user: User):
 
+        #Pronome
         pronoun = self._checkPronoun(user.title)
+
+        # Preço mensal text + preço mensal
         fullSessionPriceText, fullSessionPrice = self._getFullSessionPrice(user.session_price, user.session_quantity)
+
+        # Preço sessão
         sessionPriceText = self._getSessionPrice(user.session_price)
+
+        # Quantidade de sessões em texto
         sessionTimesText = self.number_format.translateNumber(user.session_quantity)
+
+        # Datas
         sessionDaysFormatted = self._formatSessionDays(user.session_days)
+
+
         final_text = f"Recebi {pronoun} {user.title} {user.name}, a quantia de {fullSessionPriceText} (R${fullSessionPrice}) " \
                      f"referente a {sessionTimesText} sessões de psicoterapia no valor de {sessionPriceText} (R${user.session_price}) a " \
                      f"sessão, realizadas nas datas {sessionDaysFormatted} dando-lhe este recibo devida quitação."
