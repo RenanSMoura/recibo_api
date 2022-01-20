@@ -23,7 +23,7 @@ class TicketTextGeneratorImpl(TextGeneratorRepository):
         session_days_explained = self._session.get_session_days_into_list()
 
         final_text = f"Recebi {pronoun} {self._user.title} {self._user.name}, a quantia de {full_session_price_text} (R${full_session_price}) " \
-                     f"referente a {session_quantity} sessões de psicoterapia no valor de {individual_session_price} (R${self._session.session_price}) a " \
+                     f"referente a {session_quantity} sessões de psicoterapia no valor de {individual_session_price} (R${self._session._price}) a " \
                      f"sessão, realizadas nas datas {session_days_explained} dando-lhe este recibo devida quitação."
 
         return final_text

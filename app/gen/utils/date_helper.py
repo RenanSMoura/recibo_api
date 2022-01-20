@@ -5,9 +5,7 @@ months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5: 'maio', 6: '
           9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
 
 
-# pattern = re.compile("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])")
-
-def getDateInString(paymentDay: str):
+def format_date_in_payment_description(paymentDay: str):
     payment_day = paymentDay
 
     if not payment_day:
@@ -36,11 +34,19 @@ def get_file_name(user_name: str):
     return f'{folder}{folder_month}{replace}_{year}_{month}'
 
 
+def get_day_month_and_year(payment_day: str):
+    if not payment_day:
+        date = datetime.now()
+    else:
+        date = translate_to_date_time(payment_day)
+
+    day = date.day
+    month = months[date.month]
+    year = date.year
+
+    return day, month, year
+
+
 def translate_to_date_time(payment_day: str):
     date_time_obj = datetime.strptime(payment_day, '%d/%m/%Y')
     return date_time_obj
-
-
-# date_time_obj = datetime.strptime(date_time_str, '%d/%m')
-# print("The type of the date is now", type(date_time_obj))
-# print("The date is", date_time_obj.month)
