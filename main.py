@@ -11,90 +11,6 @@ from app.gen.text.text_implementation import TicketTextGeneratorImpl
 
 def print_hi(name):
     # Ok
-    leandro = User(
-        user_name="Leandro dos Santos",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sr",
-        session_price="160",
-        session_days=['5/01', '12/01', '19/01', '26/01'],
-        payment_day="02/01/2022"
-    )
-
-    mayara = User(
-        user_name="Mayara Culler dos Santos",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="130",
-        session_days=['01/12', '08/12', '15/12', '22/12', '28/12'],
-        payment_day="15/12/2021"
-
-    )
-
-    gabriela = User(
-        user_name="Gabriella Miraglia Egydio",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="150",
-        session_days=['01/12', '08/12', '15/12', '22/12'],
-        payment_day="30/12/2021"
-    )
-
-    bianca = User(
-        user_name="Bianca Pedrina Manoel",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="140",
-        session_days=['06/12', '13/12', '20/12'],
-        payment_day="22/12/2021"
-    )
-
-    rapha = User(
-        user_name="Raphael Gallo Akabane",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sr",
-        session_price="165",
-        session_days=['2/08', '9/08', '16/08', '23/08']
-    )
-    bruna = User(
-        user_name="Bruna Bigal de Queiroz",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="170",
-        session_days=['14/10', '21/10', '28/10'],
-        payment_day="29/10"
-    )
-    barbara = User(
-        user_name="Barbara Alves de Sousa",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="135",
-        session_days=['02/12', '9/12', '30/12'],
-        payment_day="30/12/2021"
-    )
-
-    pamela_dezembro = User(
-        user_name="Pâmela Guimarães Cuesta Hijano",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="140",
-        session_days=['08/12', '22/12'],
-        payment_day="8/12/2021"
-    )
-    pamela_janeiro = User(
-        user_name="Pâmela Guimarães Cuesta Hijano",
-        user_email="renan.silva.moura@gmail.com",
-        user_title="Sra",
-        session_price="190",
-        session_days=['05/01', '19/01'],
-        payment_day="10/01/2022"
-    )
-    ana_paula = User(
-        user_name="Ana Paula Munhoz",
-        user_title="Sra",
-        session_price="125",
-        session_days=["04/01", "11/01", "18/01", "25/01"],
-        payment_day="10/01/2022"
-    )
 
     # subject_list = [gabriela, leandro, bianca, mayara, barbara, pamela_dezembro, pamela_janeiro]
     # subject_list = [ana_paula]
@@ -113,32 +29,84 @@ def print_hi(name):
 
 
 def test():
-    session = Session(
-        price="800",
-        days=["04/01", "11/01", "18/01", "25/01"]
-    )
-    user = User(
-        user_title="Sr",
-        user_name="Renan S018i07yu2180212",
+    bruna = User(
+        user_title="Sra",
+        user_name="Bruna Bigal de Queiroz",
         user_email="1892182",
-        payment_day="01/08/2001",
-        session=session
+        payment_day="31/01/2022",
+        session=Session(
+            price="180",
+            days=["06/01", "13/01", "20/01", "27/01"]
+        )
     )
 
-    session_2 = Session(
-        price="123",
-        days=["04/01", "11/01", "18/01", "25/01"]
+    barbara = User(
+        user_title="Sra",
+        user_name="Barbara Alves de Sousa",
+        payment_day="31/01/2022",
+        session=Session(
+            price="135",
+            days=["12/01", "26/01"]
+        )
     )
 
-    user_2 = User(
+    mayara = User(
+        user_title="Sra",
+        user_name="Mayara Culler dos Santos",
+        payment_day="15/01/2022",
+        session=Session(
+            price="150",
+            days=["19/01", "26/01"]
+        )
+    )
+
+    bianca = User(
+        user_title="Sra",
+        user_name="Bianca Pedrina Manoel",
+        payment_day="24/01",
+        session=Session(
+            price="140",
+            days=["17/01", "24/01", "31/01"]
+        )
+    )
+    leandro = User(
         user_title="Sr",
-        user_name="Nathany S018i07yu2180212",
-        user_email="1892182",
-        payment_day="22/7/2003",
-        session=session_2
+        user_name="Leandro dos Santos",
+        payment_day="02/01/2022",
+        session=Session(
+            price="160",
+            days=["05/01", "12/01", "19/01", "26/01"]
+        )
+    )
+    gabriela = User(
+        user_title="Sra",
+        user_name="Gabriella Miraglia Egydio",
+        payment_day="30/01/2022",
+        session=Session(
+            price="180",
+            days=["5/01", "12/01", "19/01", "26/01"]
+        )
     )
 
-    users = [user, user_2]
+    ana = User(
+        user_title="Sra",
+        user_name="Ana Paula Munhoz",
+        payment_day="10/01/2022",
+        session=Session(
+            price="125",
+            days=["03/01", "09/01", "16/01", "22/01"]
+        )
+    )
+    nathan = User(
+        user_title="Sr",
+        user_name="Nathan Felipe Caetano da Silva",
+        payment_day="25/01/2022",
+        session=Session(
+            price="100",
+            days=["6/01", "13/01", "20/01", "27/01"]
+        )
+    )
+    users = [bruna, barbara, mayara, bianca, leandro, ana, nathan, gabriela]
 
     for i in users:
         txtGen = TicketTextGeneratorImpl(i)
