@@ -1,12 +1,9 @@
 from flask import Flask
 
-app = Flask(__name__)
+from .api.rest_api import init_app
 
+def create_app():
+    app = Flask(__name__)
+    init_app(app)
+    return app
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
-if __name__ == "__main__":
-    app.run()

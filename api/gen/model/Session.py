@@ -1,5 +1,4 @@
-from app.gen.utils.format_number_helper import numberToString, translateNumber
-from app.gen.utils.date_helper import format_date_in_payment_description
+from ..utils.format_number_helper import numberToString, translateNumber
 
 
 class Session:

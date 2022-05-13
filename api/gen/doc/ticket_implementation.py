@@ -2,10 +2,10 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
-from app.gen.doc.repository import TicketPDFRepository
-from app.gen.model import Ticket
-from app.gen.utils.os_helper import OSHelper
-from repository.configs import BASE_FILE_NAME, INITIAL_INDENT, TEXT_COLOR, TEXT_FONT_FAMILY, TEXT_FONT_SIZE, CPF
+from .repository import TicketPDFRepository
+from ..model import Ticket
+from ..utils.configs import TEXT_COLOR, TEXT_FONT_FAMILY, TEXT_FONT_SIZE, BASE_FILE_NAME, INITIAL_INDENT, CPF
+from ..utils.os_helper import OSHelper
 
 
 class TickedPDFImpl(TicketPDFRepository):
@@ -25,7 +25,7 @@ class TickedPDFImpl(TicketPDFRepository):
         self._append_text_into_image(text_formatted)
         self._append_session_payment_date()
         self._append_cpf_document()
-        self._process_file()
+        return self._process_file()
 
     def _generate_new_image(self):
         self.img = Image.open(BASE_FILE_NAME)
@@ -73,12 +73,13 @@ class TickedPDFImpl(TicketPDFRepository):
 
         self._process_file_and_save(file_name_path)
         
-        self.os_helper.create_pdf_file(
+        pdf = self.os_helper.create_pdf_file(
             file_name=file_name_pdf,
             file_path=file_name_path
         )
 
         self.os_helper.delete_file(file_name_path)
+        return pdf, file_name_pdf
 
     def _process_file_and_save(self, file_name):
         self.img.save(file_name)

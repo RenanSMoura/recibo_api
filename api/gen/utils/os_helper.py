@@ -17,6 +17,7 @@ class OSHelper:
         file_name = kwargs.get("file_name")
         pdf = Image.open(file_path).convert("RGB")
         pdf.save(f"{file_name}")
+        return pdf
 
     @staticmethod
     def delete_file(file_path: str):

@@ -1,6 +1,6 @@
-from app.gen.model.Session import Session
-from app.gen.model.User import User
-from app.gen.text.repository import TextGeneratorRepository
+from ..model.Session import Session
+from ..model.User import User
+from ..text.repository import TextGeneratorRepository
 
 
 class TicketTextGeneratorImpl(TextGeneratorRepository):
