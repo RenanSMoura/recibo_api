@@ -1,6 +1,11 @@
-from marshmallow import Schema, fields, validate
+from marshmallow import Schema, fields, validate, post_load
 
+from ...gen.model.Session import Session
 
 class SessionSchema(Schema):
-    session_price = fields.Int(required=True)
-    session_days = fields.List(fields.Str(), required=True, validate=validate.Length(min=1))
+    price = fields.Str(required=True)
+    days = fields.List(fields.Str(), required=True, validate=validate.Length(min=1))
+
+    @post_load
+    def make_session(self, data, **kwargs):
+        return Session(**data)

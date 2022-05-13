@@ -7,7 +7,7 @@ from ...gen.model.User import User
 class UserSchema(Schema):
     title = fields.Str(validate=validate.OneOf(["Sra", "Sr"]), required=True)
     name = fields.Str(required=True)
-    payment_day = fields.DateTime(required=True)
+    payment_day = fields.DateTime(required=True, format="iso")
     email = fields.Email()
     session = fields.Nested(SessionSchema)
 

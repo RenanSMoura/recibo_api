@@ -2,12 +2,12 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from api.gen.doc.ticket_implementation import TickedPDFImpl
+from api.controllers.ticket_controller import generate_ticket
 from api.gen.model.Session import Session
-from api.gen.model.Ticket import Ticket
 from api.gen.model.User import User
-from api.gen.text.text_implementation import TicketTextGeneratorImpl
+from flask import Flask
 
+from api.rest_api import init_app
 
 def print_hi(name):
     # Ok
@@ -109,27 +109,28 @@ def test():
     )
 
     nataly = User(
-        user_title="Sra",
-        user_name="Nátaly Neri Napoli Grangeiro",
-        payment_day="05/05/2022",
+        title="Sra",
+        name="Nátaly Neri Napoli Grangeiro",
+        payment_day="05/10/2022",
         session=Session(
             price="250",
             days=["6/05", "11/05", "13/05", "18/05",
                   "20/05", "25/05", "27/05"]
         )
     )
-    users = [bruna, barbara, mayara, bianca, leandro, nathan, gabriela, pamela, nataly]
+    # users = [bruna, barbara, mayara, bianca, leandro, nathan, gabriela, pamela, nataly]
+    users = [nataly]
     for i in users:
-        txtGen = TicketTextGeneratorImpl(i)
-        ticket = Ticket(
-            final_text=txtGen.createTicketDescription(),
-            user=i,
-        )
-        TickedPDFImpl(ticket).generate_ticket()
+        generate_ticket(i)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi("11")
+    app = Flask(__name__)
+    init_app(app)
+    app.run(debug=True)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+
