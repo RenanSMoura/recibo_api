@@ -39,4 +39,9 @@ def numberToString(number_p):
 
 
 def translateNumber(num_p):
-    return num2words(num_p, lang='pt_br')
+    if num_p == 1:
+        return "uma"
+    elif num_p == 2:
+        return "duas"
+    else:
+        return num2words(num_p, lang='pt_br', ordinal=False)

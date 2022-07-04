@@ -15,6 +15,7 @@ class TickedPDFImpl(TicketPDFRepository):
         self._text_color = TEXT_COLOR
         self._text_font = ImageFont.truetype(TEXT_FONT_FAMILY, TEXT_FONT_SIZE)
         self.os_helper = OSHelper()
+        self.is_big_text = False
 
     def generate_ticket(self):
         self._generate_new_image()
@@ -45,6 +46,9 @@ class TickedPDFImpl(TicketPDFRepository):
         return formatted_text
 
     def _append_text_into_image(self, text):
+        if len(text) > 300:
+            self.is_big_text = True
+
         position_in_pixels = (120, 165)
         text_spacing = 15
         self.draw_img.multiline_text(
@@ -56,11 +60,18 @@ class TickedPDFImpl(TicketPDFRepository):
 
     def _append_session_payment_date(self):
         date = self._ticket.get_payment_date()
-        position_in_pixels = (150, 320)
+        if self.is_big_text:
+            position_in_pixels = (150, 330)
+        else:
+            position_in_pixels = (150, 320)
         self.draw_img.text(position_in_pixels, date, self._text_color, self._text_font)
 
     def _append_cpf_document(self):
-        position_in_pixels = (520, 320)
+        if self.is_big_text:
+            position_in_pixels = (520, 330)
+        else:
+            position_in_pixels = (520, 320)
+
         self.draw_img.text(position_in_pixels, CPF, self._text_color, self._text_font)
 
     def _process_file(self):
@@ -68,11 +79,11 @@ class TickedPDFImpl(TicketPDFRepository):
 
         file_name_path = f"{file_name}.png"
         file_name_pdf = f"{file_name}.pdf"
-        
+
         self.os_helper.process_folder_creation(file_name)
 
         self._process_file_and_save(file_name_path)
-        
+
         pdf = self.os_helper.create_pdf_file(
             file_name=file_name_pdf,
             file_path=file_name_path

@@ -48,5 +48,5 @@ def get_day_month_and_year(payment_day: str):
 
 
 def translate_to_date_time(payment_day: str):
-    abc = parser.isoparse(str(payment_day))
-    return abc.date()
+    date_time_obj = datetime.strptime(payment_day, '%d/%m/%Y')
+    return date_time_obj

@@ -5,9 +5,7 @@
 from api.controllers.ticket_controller import generate_ticket
 from api.gen.model.Session import Session
 from api.gen.model.User import User
-from flask import Flask
 
-from api.rest_api import init_app
 
 def print_hi(name):
     # Ok
@@ -30,107 +28,105 @@ def print_hi(name):
 
 def test():
     bruna = User(
-        user_title="Sra",
-        user_name="Bruna Bigal de Queiroz",
-        payment_day="29/04/2022",
+        title="Sra",
+        name="Bruna Bigal de Queiroz",
+        payment_day="30/06/2022",
         session=Session(
             price="180",
-            days=["07/04", "14/04", "28/04"]
+            days=["02/06", "09/06" "23/06", "30/06"]
         )
     )
 
     barbara = User(
-        user_title="Sra",
-        user_name="Barbara Alves de Sousa",
-        payment_day="30/04/2022",
+        title="Sra",
+        name="Barbara Alves de Sousa",
+        payment_day="28/06/2022",
         session=Session(
             price="160",
-            days=["14/04", "28/04"]
+            days=["08/06", "23/06"]
         )
     )
 
     mayara = User(
-        user_title="Sra",
-        user_name="Mayara Culler dos Santos",
-        payment_day="15/04/2022",
+        title="Sra",
+        name="Mayara Culler dos Santos",
+        payment_day="15/06/2022",
         session=Session(
             price="150",
-            days=["07/04", "14/04", "28/04"]
+            days=["02/06", "09/06", "23/06", "30/06"]
         )
     )
 
     bianca = User(
-        user_title="Sra",
-        user_name="Bianca Pedrina Manoel",
-        payment_day="21/04/2022",
+        title="Sra",
+        name="Bianca Pedrina Manoel",
+        payment_day="21/06/2022",
         session=Session(
             price="160",
-            days=["04/04", "11/04", "18/04", "25/04"]
-        )
-    )
-
-    leandro = User(
-        user_title="Sr",
-        user_name="Leandro dos Santos",
-        payment_day="01/05/2022",
-        session=Session(
-            price="180",
-            days=["04/05", "11/05", "18/05", "25/05"]
+            days=["04/06", "11/06" "18/06", "25/06"]
         )
     )
 
     gabriela = User(
-        user_title="Sra",
-        user_name="Gabriella Miraglia Egydio",
-        payment_day="30/04/2022",
+        title="Sra",
+        name="Gabriella Miraglia Egydio",
+        payment_day="30/06/2022",
         session=Session(
             price="180",
-            days=["6/04", "13/04", "20/04", "27/04"]
+            days=["1/06", "08/06", "15/06", "22/06", "29/06"]
         )
     )
 
     nathan = User(
-        user_title="Sr",
-        user_name="Nathan Felipe Caetano da Silva",
-        payment_day="29/04/2022",
+        title="Sr",
+        name="Nathan Felipe Caetano da Silva",
+        payment_day="30/06/2022",
         session=Session(
             price="200",
-            days=["7/04", "14/04"]
-        )
-    )
-    pamela = User(
-        user_title="Sra",
-        user_name="Pâmela Guimarães Cuesta Hijano",
-        payment_day="5/05/2022",
-        session=Session(
-            price="190",
-            days=["04/05", "11/05", "18/05", "25/05"]
+            days=["8/06", "22/06","22/06","22/06","22/06"]
         )
     )
 
     nataly = User(
         title="Sra",
         name="Nátaly Neri Napoli Grangeiro",
-        payment_day="05/10/2022",
+        payment_day="05/07/2022",
         session=Session(
             price="250",
-            days=["6/05", "11/05", "13/05", "18/05",
-                  "20/05", "25/05", "27/05"]
+            days=["1/07", "06/07", "08/07", "13/07",
+                  "15/07", "20/07", "22/07", "27/07", "29/07"]
         )
     )
-    # users = [bruna, barbara, mayara, bianca, leandro, nathan, gabriela, pamela, nataly]
-    users = [nataly]
+
+    leandro = User(
+        title="Sr",
+        name="Leandro dos Santos",
+        payment_day="03/07/2022",
+        session=Session(
+            price="180",
+            days=["06/07", "13/07", "20/07", "27/07"]
+        )
+    )
+
+    pamela = User(
+        title="Sra",
+        name="Pâmela Guimarães Cuesta Hijano",
+        payment_day="10/06/2022",
+        session=Session(
+            price="190",
+            days=["02/06", "07/06", "09/06", "14/06", "16/06"]
+        )
+    )
+
+    # users = [bruna, barbara, mayara, bianca, leandro, nathan, gabriela, nataly]
+    users = [ nathan]
     for i in users:
         generate_ticket(i)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    app = Flask(__name__)
-    init_app(app)
-    app.run(debug=True)
-
-
-
-
-
+    # app = Flask(__name__)
+    # init_app(app)
+    # app.run(debug=True)
+    test()
