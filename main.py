@@ -8,21 +8,6 @@ from api.gen.model.User import User
 
 
 def print_hi(name):
-    # Ok
-
-    # subject_list = [gabriela, leandro, bianca, mayara, barbara, pamela_dezembro, pamela_janeiro]
-    # subject_list = [ana_paula]
-    #
-    # clss = TextGenerationRepositoryImplementation()
-    # image_generator = ImageGenerationRepositoryImplementation()
-    #
-    # for user in subject_list:
-    #     final_text = clss.createTicketDescription(user)
-    #     image_generator.generateSubjectTicket(
-    #         description=final_text,
-    #         user_file_name=get_file_name(user.name.lower()),
-    #         paymentDate=user.payment_day
-    #     )
     test()
 
 
@@ -30,96 +15,106 @@ def test():
     bruna = User(
         title="Sra",
         name="Bruna Bigal de Queiroz",
-        payment_day="30/06/2022",
+        payment_day="30/09/2022",
         session=Session(
             price="180",
-            days=["02/06", "09/06" "23/06", "30/06"]
+            days=["1/09", "15/09"]
         )
     )
 
     barbara = User(
         title="Sra",
         name="Barbara Alves de Sousa",
-        payment_day="28/06/2022",
+        payment_day="30/08/2022",
         session=Session(
             price="160",
-            days=["08/06", "23/06"]
+            days=["31/08"]
         )
     )
 
     mayara = User(
         title="Sra",
         name="Mayara Culler dos Santos",
-        payment_day="15/06/2022",
+        payment_day="15/09/2022",
         session=Session(
             price="150",
-            days=["02/06", "09/06", "23/06", "30/06"]
+            days=["01/09","05/09","15/09","22/09","30/09"]
         )
     )
 
     bianca = User(
         title="Sra",
         name="Bianca Pedrina Manoel",
-        payment_day="21/06/2022",
+        payment_day="20/09/2022",
         session=Session(
             price="160",
-            days=["04/06", "11/06" "18/06", "25/06"]
+            days=["05/09", "12/09" "19/09", "26/09"]
         )
     )
 
     gabriela = User(
         title="Sra",
         name="Gabriella Miraglia Egydio",
-        payment_day="30/06/2022",
+        payment_day="30/09/2022",
         session=Session(
             price="180",
-            days=["1/06", "08/06", "15/06", "22/06", "29/06"]
+            days=["05/09", "14/09", "21/09", "28/09"]
         )
     )
 
     nathan = User(
         title="Sr",
         name="Nathan Felipe Caetano da Silva",
-        payment_day="30/06/2022",
+        payment_day="30/09/2022",
         session=Session(
             price="200",
-            days=["8/06", "22/06","22/06","22/06","22/06"]
+            days=["13/09", "27/09"]
         )
     )
 
     nataly = User(
         title="Sra",
         name="Nátaly Neri Napoli Grangeiro",
-        payment_day="05/07/2022",
+        payment_day="05/10/2022",
         session=Session(
             price="250",
-            days=["1/07", "06/07", "08/07", "13/07",
-                  "15/07", "20/07", "22/07", "27/07", "29/07"]
+            days=["7/10", "11/10", "14/10", "18/10",
+                  "21/10", "25/10", "28/10"]
         )
     )
 
     leandro = User(
         title="Sr",
         name="Leandro dos Santos",
-        payment_day="03/07/2022",
+        payment_day="01/10/2022",
         session=Session(
             price="180",
-            days=["06/07", "13/07", "20/07", "27/07"]
+            days=["07/10", "14/10", "21/10", "28/10"]
         )
     )
 
     pamela = User(
         title="Sra",
         name="Pâmela Guimarães Cuesta Hijano",
-        payment_day="10/06/2022",
+        payment_day="15/07/2022",
         session=Session(
             price="190",
-            days=["02/06", "07/06", "09/06", "14/06", "16/06"]
+            days=["20/07","27/07"]
         )
     )
 
-    # users = [bruna, barbara, mayara, bianca, leandro, nathan, gabriela, nataly]
-    users = [ nathan]
+    rafa = User(
+        title="Sr",
+        name="Raphael Gallo Akabane",
+        payment_day="28/09/2022",
+        session=Session(
+            price="200",
+            days=["06/09","20/09","27/09"]
+        )
+    )
+
+    # users = [bruna, mayara, bianca, leandro, nathan, gabriela]
+    users = [rafa, nataly]
     for i in users:
         generate_ticket(i)
 
