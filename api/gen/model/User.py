@@ -4,6 +4,7 @@ from . import Session
 class User:
 
     def __init__(self, **kwargs):
+        self.id : str = kwargs.get("id")
         self.title: str = kwargs.get('title')
         self.name: str = kwargs.get('name')
         self.email: str = kwargs.get('email')

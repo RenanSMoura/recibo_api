@@ -14,7 +14,8 @@ class Ticket:
 
     def get_file_name(self):
         user_name = self._user.name.lower()
+        user_id = self._user.id
         payment_date = self._user.payment_day
         name_formatted = user_name.lower().replace(" ", "_")
         payment_day, payment_month, payment_year = get_day_month_and_year(payment_date)
-        return f"{self.default_ticket_directory}/{payment_year}/{payment_month}/{name_formatted}_{payment_year}_{payment_month}"
+        return f"{self.default_ticket_directory}/{user_id}/{payment_year}/{payment_month}/{name_formatted}_{payment_year}_{payment_month}"
